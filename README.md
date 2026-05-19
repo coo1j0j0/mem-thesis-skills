@@ -63,7 +63,7 @@ skills/mem-thesis-writer/agents/openai.yaml
 在 Codex 中可以这样调用：
 
 ```text
-Use $mem-thesis-writer 帮我把这个管理类专硕论文题目收敛一下，说明研究对象、核心问题和不建议写入题目 的内容。
+Use $mem-thesis-writer 帮我把这个管理类专硕论文题目收敛一下，说明研究对象、核心问题和不建议写入题目的内容。
 ```
 
 ```text
