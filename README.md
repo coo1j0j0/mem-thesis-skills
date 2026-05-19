@@ -58,9 +58,17 @@ skills/mem-thesis-writer/references/swjtu-master-thesis-format.md
 skills/mem-thesis-writer/agents/openai.yaml
 ```
 
-## 使用方式
+## 使用说明
 
-在 Codex 中可以这样调用：
+### 在 Codex 中调用
+
+本机已安装该 skill 时，可以直接在对话里写：
+
+```text
+Use $mem-thesis-writer + 你的论文任务
+```
+
+例如：
 
 ```text
 Use $mem-thesis-writer 帮我把这个管理类专硕论文题目收敛一下，说明研究对象、核心问题和不建议写入题目的内容。
@@ -77,6 +85,99 @@ Use $mem-thesis-writer 审查我的开题报告，按“必须补齐、建议修
 ```text
 Use $mem-thesis-writer 把这一段论文文字去 AI 味，但不要增加事实、数据或引用。
 ```
+
+### 从 GitHub 安装
+
+公开仓库地址：
+
+```text
+https://github.com/coo1j0j0/mem-thesis-skills
+```
+
+安装路径：
+
+```text
+skills/mem-thesis-writer/
+```
+
+在支持技能安装的 Codex 环境中，可表达为：
+
+```text
+请从 https://github.com/coo1j0j0/mem-thesis-skills 安装 skills/mem-thesis-writer 这个 Codex skill。
+```
+
+如果本机已经有旧版本，安装或同步后应确认以下文件存在：
+
+```text
+~/.codex/skills/mem-thesis-writer/SKILL.md
+~/.codex/skills/mem-thesis-writer/references/swjtu-master-thesis-format.md
+```
+
+### 推荐输入格式
+
+为减少来回确认，建议一次性给出以下信息：
+
+```text
+Use $mem-thesis-writer
+任务类型：选题收敛 / 开题报告 / 大纲 / 章节草稿 / 材料清单 / 格式检查 / 去AI味
+论文题目：……
+研究对象：……
+已有材料：列出文件、访谈、表格、项目记录或本地文件夹
+希望输出：清单 / 大纲 / 正文段落 / 修改意见 / 对照表
+限制条件：不要编造数据；只用本地材料；按SWJTU/MEM要求；方法不要复杂；保持甲方视角
+```
+
+### 常见任务模板
+
+选题收敛：
+
+```text
+Use $mem-thesis-writer 基于我现在的材料，把题目、研究对象、核心问题和论文边界重新收敛。不要把PMBOK/PDCA/ITIL写进题目，输出“推荐题目、研究对象、核心问题、论文边界、下一步需核实材料”。
+```
+
+开题报告审查：
+
+```text
+Use $mem-thesis-writer 按学校开题报告要求审查这份材料，先列“必须补齐、建议修改、可最后优化”，每条说明风险和具体改法，不要直接重写全文。
+```
+
+论文大纲：
+
+```text
+Use $mem-thesis-writer 按MEM案例分析论文逻辑生成三级目录。论文要保持甲方视角，写管理问题而不是技术实现，方法简化，效果验证指标不要太多。
+```
+
+证据材料清单：
+
+```text
+Use $mem-thesis-writer 根据我的论文题目和本地材料，列出优先收集的项目资料、过程记录、访谈问题和可用表格，并区分“已确认、可补充、访谈/问卷可验证、不可写实”。
+```
+
+章节草稿：
+
+```text
+Use $mem-thesis-writer 写“问题识别与成因分析”这一节，只依据我给出的材料。缺失信息用“待补充”标记，不要添加虚构数据、引用或专家意见。
+```
+
+去 AI 味润色：
+
+```text
+Use $mem-thesis-writer 对下面文字做论文式润色，保留事实和范围，去掉宣传式表达、空泛转折和过强结论，不增加新观点。
+```
+
+SWJTU 硕士论文格式检查：
+
+```text
+Use $mem-thesis-writer 按西南交通大学硕士论文格式检查这份论文，重点看封面/扉页、摘要关键词、目录层级、字体段落、图表、参考文献、页眉页码和装订顺序。输出“必须按模板处理、格式风险、可写作优化、待补充字段”。
+```
+
+### 输出使用建议
+
+- 做选题、目录、开题报告时，先让 skill 输出诊断和清单，再决定是否重写正文。
+- 做 SWJTU 格式检查时，应同时提供学校原始模板或当前 Word 文档；固定声明、签字页、扉页版式以学校模板为准。
+- 做章节草稿时，先提供真实材料来源；没有材料的地方让 skill 标 `待补充`，不要让它补成事实。
+- 做去 AI 味时，给出原文和约束，例如“不要改变题目”“不要增加指标”“不要写成咨询报告”。
+- 做参考文献或引用清理时，要求区分“本地可核验引用”和“待补充来源”，避免虚空引用。
 
 ## 输出风格
 
